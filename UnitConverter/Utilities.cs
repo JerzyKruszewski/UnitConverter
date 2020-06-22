@@ -8,8 +8,6 @@ namespace UnitConverter
     {
         public static string FormatDouble(double numberToFormat, int decimalPlaces = -1)
         {
-            //Round at bigger values
-
             if (decimalPlaces < 0)
             {
                 return $"{numberToFormat}";
