@@ -3,7 +3,7 @@ using NUnit.Framework;
 namespace UnitConverter.UnitTests
 {
     [TestFixture]
-    public class LengthConvertionsTests
+    public class LengthConverterTests
     {
         [SetUp]
         public void Setup()
@@ -16,7 +16,7 @@ namespace UnitConverter.UnitTests
         [TestCase(0.3048, 1.0)]
         public void ConvertMetersToFeet_WhenCalled_ReturnsLengthInFeet(double meters, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertMetersToFeet(meters), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertMetersToFeet(meters), 0.0000000001);
         }
 
         // Accuracy to the 10th decimal place
@@ -25,7 +25,7 @@ namespace UnitConverter.UnitTests
         [TestCase(1.0, 0.3048)]
         public void ConvertFeetToMeters_WhenCalled_ReturnsLengthInMeters(double feet, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertFeetToMeters(feet), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertFeetToMeters(feet), 0.0000000001);
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace UnitConverter.UnitTests
         [TestCase(2.54, 1.0)]
         public void ConvertCentimetersToInches_WhenCalled_ReturnsLengthInInches(double centimeters, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertCentimetersToInches(centimeters), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertCentimetersToInches(centimeters), 0.0000000001);
         }
 
         [Test]
@@ -41,21 +41,21 @@ namespace UnitConverter.UnitTests
         [TestCase(1.0, 2.54)]
         public void ConvertInchesToCentimeters_WhenCalled_ReturnsLengthInCentimeters(double inches, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertInchesToCentimeters(inches), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertInchesToCentimeters(inches), 0.0000000001);
         }
 
         [Test]
         [TestCase(1.609344, 1.0)]
         public void ConvertKilometersToMiles_WhenCalled_ReturnsLengthInMiles(double kilometers, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertKilometersToMiles(kilometers), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertKilometersToMiles(kilometers), 0.0000000001);
         }
 
         [Test]
         [TestCase(1.0, 1.609344)]
         public void ConvertMilesToKilometers_WhenCalled_ReturnsLengthInKilometers(double miles, double expectedResult)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ConvertMilesToKilometers(miles), 0.0000000001);
+            Assert.AreEqual(expectedResult, LengthConverter.ConvertMilesToKilometers(miles), 0.0000000001);
         }
 
         [Test]
@@ -65,7 +65,7 @@ namespace UnitConverter.UnitTests
         [TestCase("")]
         public void ParseCentimetersToFeet_WhenCalledWithNotParseableArgument_ThrowsFormatException(string LengthInCentimeters)
         {
-            Assert.Throws<System.FormatException>(() => LengthConvertions.ParseCentimetersToFeet(LengthInCentimeters));
+            Assert.Throws<System.FormatException>(() => LengthConverter.ParseCentimetersToFeet(LengthInCentimeters));
         }
 
         [Test]
@@ -77,7 +77,7 @@ namespace UnitConverter.UnitTests
         [TestCase("2.54cm", "0'1.000\"", 3)]
         public void ParseCentimetersToFeet_WhenCalled_ReturnsFormatedLength(string LengthInCentimeters, string expectedResult, int decimalPlaces)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ParseCentimetersToFeet(LengthInCentimeters, decimalPlaces));
+            Assert.AreEqual(expectedResult, LengthConverter.ParseCentimetersToFeet(LengthInCentimeters, decimalPlaces));
         }
 
         [Test]
@@ -89,7 +89,7 @@ namespace UnitConverter.UnitTests
         [TestCase("5'10\"", "177cm", 0)]
         public void ParseFeetToCentimeters_WhenCalled_ReturnsFormatedLength(string LengthInFeet, string expectedResult, int decimalPlaces)
         {
-            Assert.AreEqual(expectedResult, LengthConvertions.ParseFeetToCentimeters(LengthInFeet, decimalPlaces));
+            Assert.AreEqual(expectedResult, LengthConverter.ParseFeetToCentimeters(LengthInFeet, decimalPlaces));
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UnitConverter
 {
-    public class TemperatureConvertions
+    public class TemperatureConverter
     {
         public static double ConvertCelsiusToFahrenheit(double celsius)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UnitConverter
 {
-    public class WeightConvertions
+    public class WeightConverter
     {
         private const double PoundsToKilogramsRatio = 0.45359237;
         private const double OuncesToGramsRatio = 28.349523125;

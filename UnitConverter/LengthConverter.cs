@@ -5,7 +5,7 @@ namespace UnitConverter
     /// <summary>
     /// Length unit convertions
     /// </summary>
-    public class LengthConvertions
+    public class LengthConverter
     {
         private const double FootToMeterRatio = 0.3048;
         private const double InchToCentiMeterRatio = 2.54;
