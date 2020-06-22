@@ -9,6 +9,7 @@ namespace UnitConverter.UnitTests
         [TestCase(10.0, "10", 0)]
         [TestCase(-1, "-1.0000", 4)]
         [TestCase(1, "1.00", 2)]
+        [TestCase(1.5, "1.5", -1)]
         public void FormatDouble_WhenCalled_FormatsDoubleNumberWithGivenDecimalPrecision(double numberToFormat, string expectedResult, int decimalPlaces)
         {
             Assert.AreEqual(expectedResult, Utilities.FormatDouble(numberToFormat, decimalPlaces));

@@ -3,7 +3,7 @@
 namespace UnitConverter
 {
     /// <summary>
-    /// Length unit convertions
+    /// Length units convertions
     /// </summary>
     public class LengthConverter
     {
