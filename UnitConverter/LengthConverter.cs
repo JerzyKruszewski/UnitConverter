@@ -12,7 +12,7 @@ namespace UnitConverter
         private const double MileToKilometerRatio = 1.609344;
 
         /// <summary>
-        /// Converts meters to feet.
+        /// Converts given length in meters to feet.
         /// </summary>
         /// <param name="meters">
         /// Length in meters to convert.
@@ -26,7 +26,7 @@ namespace UnitConverter
         }
 
         /// <summary>
-        /// Converts feet to meters.
+        /// Converts given length in feet to meters.
         /// </summary>
         /// <param name="feet">
         /// Length in feet to convert.
@@ -39,36 +39,78 @@ namespace UnitConverter
             return feet * FootToMeterRatio;
         }
 
+        /// <summary>
+        /// Converts given length in centimeters to inches.
+        /// </summary>
+        /// <param name="centimeters">
+        /// Length in centimeters to convert.
+        /// </param>
+        /// <returns>
+        /// Converted length in inches.
+        /// </returns>
         public static double ConvertCentimetersToInches(double centimeters)
         {
             return centimeters / InchToCentiMeterRatio;
         }
 
+        /// <summary>
+        /// Converts given length in inches to centimeters.
+        /// </summary>
+        /// <param name="inches">
+        /// Length in inches to convert.
+        /// </param>
+        /// <returns>
+        /// Converted length in centimeters.
+        /// </returns>
         public static double ConvertInchesToCentimeters(double inches)
         {
             return inches * InchToCentiMeterRatio;
         }
 
         //mile - mi
+        /// <summary>
+        /// Converts given length in kilometers to miles.
+        /// </summary>
+        /// <param name="kilometers">
+        /// Length in kilometers to convert.
+        /// </param>
+        /// <returns>
+        /// Converted length in miles.
+        /// </returns>
         public static double ConvertKilometersToMiles(double kilometers)
         {
             return kilometers / MileToKilometerRatio;
         }
 
+        /// <summary>
+        /// Converts given length in miles to kilometers.
+        /// </summary>
+        /// <param name="miles">
+        /// Length in miles to convert.
+        /// </param>
+        /// <returns>
+        /// Converted length in kilometers.
+        /// </returns>
         public static double ConvertMilesToKilometers(double miles)
         {
             return miles * MileToKilometerRatio;
         }
 
         /// <summary>
-        /// 
+        /// Parse length in centimeters from string to feet.
         /// </summary>
-        /// <param name="LengthInCentimeters"></param>
-        /// <param name="decimalPlaces">Accuracy</param>
-        /// <returns></returns>
-        public static string ParseCentimetersToFeet(string LengthInCentimeters, int decimalPlaces = 0)
+        /// <param name="lengthInCentimeters">
+        /// Length in centimeters.
+        /// </param>
+        /// <param name="decimalPlaces">
+        /// Desired accuracy.
+        /// </param>
+        /// <returns>
+        /// Formatted length in feet.
+        /// </returns>
+        public static string ParseCentimetersToFeet(string lengthInCentimeters, int decimalPlaces = 0)
         {
-            double centimeters = double.Parse(LengthInCentimeters.ToLower().Replace("cm", "").Replace('.', ',').Trim());
+            double centimeters = double.Parse(lengthInCentimeters.ToLower().Replace("cm", "").Replace('.', ',').Trim());
             double inches = ConvertCentimetersToInches(centimeters);
             int feet = (int)inches / 12;
             inches -= feet * 12;
@@ -77,14 +119,20 @@ namespace UnitConverter
         }
 
         /// <summary>
-        /// 
+        /// Parse length in feet from string to centimeters.
         /// </summary>
-        /// <param name="LengthInFeet"></param>
-        /// <param name="decimalPlaces">Accuracy</param>
-        /// <returns></returns>
-        public static string ParseFeetToCentimeters(string LengthInFeet, int decimalPlaces = 2)
+        /// <param name="lengthInFeet">
+        /// Length in feet.
+        /// </param>
+        /// <param name="decimalPlaces">
+        /// Desired accuracy.
+        /// </param>
+        /// <returns>
+        /// Formatted length in centimeters.
+        /// </returns>
+        public static string ParseFeetToCentimeters(string lengthInFeet, int decimalPlaces = 2)
         {
-            string[] splittedLength = LengthInFeet.Trim().Replace("\"", "").Split('\'');
+            string[] splittedLength = lengthInFeet.Trim().Replace("\"", "").Split('\'');
             int feet = int.Parse(splittedLength[0]);
             int inches = int.Parse(splittedLength[1]);
 
