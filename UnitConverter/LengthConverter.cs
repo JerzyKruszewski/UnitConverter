@@ -67,7 +67,7 @@ namespace UnitConverter
             return inches * InchToCentiMeterRatio;
         }
 
-        //mile - mi
+        //mile - mi.
         /// <summary>
         /// Converts given length in kilometers to miles.
         /// </summary>
