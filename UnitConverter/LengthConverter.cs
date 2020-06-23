@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UnitConverter
+﻿namespace UnitConverter
 {
     /// <summary>
     /// Length units convertions
@@ -141,6 +139,46 @@ namespace UnitConverter
             string result = $"{Utilities.FormatDouble(groundTruth, decimalPlaces)}cm";
 
             return result;
+        }
+
+        /// <summary>
+        /// Parse length in kilometers from string to miles.
+        /// </summary>
+        /// <param name="lengthInKilometers">
+        /// Length in kilometers.
+        /// </param>
+        /// <param name="decimalPlaces">
+        /// Desired accuracy.
+        /// </param>
+        /// <returns>
+        /// Formatted length in miles.
+        /// </returns>
+        public static string ParseKilometersToMiles(string lengthInKilometers, int decimalPlaces = 2)
+        {
+            double kilometers = double.Parse(lengthInKilometers.ToLower().Replace("km", "").Replace('.', ',').Trim());
+            double miles = ConvertKilometersToMiles(kilometers);
+
+            return $"{Utilities.FormatDouble(miles, decimalPlaces)}mi";
+        }
+
+        /// <summary>
+        /// Parse length in miles from string to kilometers.
+        /// </summary>
+        /// <param name="lengthInMiles">
+        /// Length in miles.
+        /// </param>
+        /// <param name="decimalPlaces">
+        /// Desired accuracy.
+        /// </param>
+        /// <returns>
+        /// Formatted length in kilometers.
+        /// </returns>
+        public static string ParseMilesToKilometers(string lengthInMiles, int decimalPlaces = 2)
+        {
+            double miles = double.Parse(lengthInMiles.ToLower().Replace("mi", "").Replace('.', ',').Trim());
+            double kilometers = ConvertMilesToKilometers(miles);
+
+            return $"{Utilities.FormatDouble(kilometers, decimalPlaces)}km";
         }
     }
 }

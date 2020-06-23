@@ -63,9 +63,9 @@ namespace UnitConverter.UnitTests
         [TestCase("Lorem Ipsum")]
         [TestCase("4'11")]
         [TestCase("")]
-        public void ParseCentimetersToFeet_WhenCalledWithNotParseableArgument_ThrowsFormatException(string LengthInCentimeters)
+        public void ParseCentimetersToFeet_WhenCalledWithNotParseableArgument_ThrowsFormatException(string lengthInCentimeters)
         {
-            Assert.Throws<System.FormatException>(() => LengthConverter.ParseCentimetersToFeet(LengthInCentimeters));
+            Assert.Throws<System.FormatException>(() => LengthConverter.ParseCentimetersToFeet(lengthInCentimeters));
         }
 
         [Test]
@@ -75,9 +75,9 @@ namespace UnitConverter.UnitTests
         [TestCase("180,0cm", "5'10\"", 0)]
         [TestCase("2.54cm", "0'1.0\"", 1)]
         [TestCase("2.54cm", "0'1.000\"", 3)]
-        public void ParseCentimetersToFeet_WhenCalled_ReturnsFormatedLength(string LengthInCentimeters, string expectedResult, int decimalPlaces)
+        public void ParseCentimetersToFeet_WhenCalled_ReturnsFormatedLength(string lengthInCentimeters, string expectedResult, int decimalPlaces)
         {
-            Assert.AreEqual(expectedResult, LengthConverter.ParseCentimetersToFeet(LengthInCentimeters, decimalPlaces));
+            Assert.AreEqual(expectedResult, LengthConverter.ParseCentimetersToFeet(lengthInCentimeters, decimalPlaces));
         }
 
         [Test]
@@ -87,9 +87,29 @@ namespace UnitConverter.UnitTests
         [TestCase("5'10\"", "177.80cm", 2)]
         [TestCase("5'10\"", "177.8cm", 1)]
         [TestCase("5'10\"", "177cm", 0)]
-        public void ParseFeetToCentimeters_WhenCalled_ReturnsFormatedLength(string LengthInFeet, string expectedResult, int decimalPlaces)
+        public void ParseFeetToCentimeters_WhenCalled_ReturnsFormatedLength(string lengthInFeet, string expectedResult, int decimalPlaces)
         {
-            Assert.AreEqual(expectedResult, LengthConverter.ParseFeetToCentimeters(LengthInFeet, decimalPlaces));
+            Assert.AreEqual(expectedResult, LengthConverter.ParseFeetToCentimeters(lengthInFeet, decimalPlaces));
+        }
+
+        [Test]
+        [TestCase("1", "0.62mi", 2)]
+        [TestCase("1km", "0.62mi", 2)]
+        [TestCase("1 km", "0.62mi", 2)]
+        [TestCase("1KM", "0.6mi", 1)]
+        [TestCase("1.60935", "1.000mi", 3)]
+        public void ParseKilometersToMiles_WhenCalled_ReturnsFormatedLength(string lengthInKilometers, string expectedResult, int decimalPlaces)
+        {
+            Assert.AreEqual(expectedResult, LengthConverter.ParseKilometersToMiles(lengthInKilometers, decimalPlaces));
+        }
+
+        [Test]
+        [TestCase("1mi", "1.609km", 3)]
+        [TestCase("0.62137119224mi", "1.00km", 2)]
+        [TestCase("2.00mi", "3.2km", 1)]
+        public void ParseMilesToKilometers_WhenCalled_ReturnsFormatedLength(string lengthInMiles, string expectedResult, int decimalPlaces)
+        {
+            Assert.AreEqual(expectedResult, LengthConverter.ParseMilesToKilometers(lengthInMiles, decimalPlaces));
         }
     }
 }
