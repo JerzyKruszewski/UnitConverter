@@ -1,15 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace UnitConverter.UnitTests
 {
     [TestFixture]
     public class TemperatureConverterTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         [TestCase(0, 32)]
         [TestCase(1, 33.8)]
@@ -29,10 +25,30 @@ namespace UnitConverter.UnitTests
         }
 
         [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("")]
+        public void ParseCelsiusToFahrenheit_WhenCalledWithNotParseableArgument_ThrowsFormatException(string temperatureInCelsius)
+        {
+            Assert.Throws<FormatException>(() => TemperatureConverter.ParseCelsiusToFahrenheit(temperatureInCelsius));
+        }
+
+        [Test]
         [TestCase("0", "32.0°F", 1)]
         public void ParseCelsiusToFahrenheit_WhenCalled_ReturnsTemperatureInFahrenheit(string celsius, string expectedResult, int decimalPlaces)
         {
             Assert.AreEqual(expectedResult, TemperatureConverter.ParseCelsiusToFahrenheit(celsius, decimalPlaces));
+        }
+
+        [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("")]
+        public void ParseFahrenheitToCelsius_WhenCalledWithNotParseableArgument_ThrowsFormatException(string temperatureInFahrenheit)
+        {
+            Assert.Throws<FormatException>(() => TemperatureConverter.ParseFahrenheitToCelsius(temperatureInFahrenheit));
         }
 
         [Test]

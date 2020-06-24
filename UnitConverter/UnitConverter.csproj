@@ -2,6 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>LorinthsLair.UnitConverter</PackageId>
+    <Authors>Jerzy Kruszewski</Authors>
+    <Company>LorinthsLair</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/JerzyKruszewski/UnitConverter</RepositoryUrl>
+    <PackageTags>Units, Converter, UnitConverter, LorinthsLair</PackageTags>
+    <PackageIcon>LorinthsLair.png</PackageIcon>
+    <Description>Simple .NET Standard library for unit conversions.</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LorinthsLair.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

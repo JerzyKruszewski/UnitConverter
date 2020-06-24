@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace UnitConverter.UnitTests
@@ -5,11 +6,6 @@ namespace UnitConverter.UnitTests
     [TestFixture]
     public class LengthConverterTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         // Accuracy to the 10th decimal place
         [Test]
         [TestCase(1.0, 3.280839895013123)]
@@ -65,7 +61,7 @@ namespace UnitConverter.UnitTests
         [TestCase("")]
         public void ParseCentimetersToFeet_WhenCalledWithNotParseableArgument_ThrowsFormatException(string lengthInCentimeters)
         {
-            Assert.Throws<System.FormatException>(() => LengthConverter.ParseCentimetersToFeet(lengthInCentimeters));
+            Assert.Throws<FormatException>(() => LengthConverter.ParseCentimetersToFeet(lengthInCentimeters));
         }
 
         [Test]
@@ -81,6 +77,16 @@ namespace UnitConverter.UnitTests
         }
 
         [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("")]
+        public void ParseFeetToCentimeters_WhenCalledWithNotParseableArgument_ThrowsFormatException(string lengthInFeet)
+        {
+            Assert.Throws<FormatException>(() => LengthConverter.ParseFeetToCentimeters(lengthInFeet));
+        }
+
+        [Test]
         [TestCase("0'1\"", "2.54cm", 2)]
         [TestCase("0'11\"", "27.94cm", 2)]
         [TestCase("1'0\"", "30.48cm", 2)]
@@ -93,6 +99,17 @@ namespace UnitConverter.UnitTests
         }
 
         [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("1mi")]
+        [TestCase("")]
+        public void ParseKilometersToMiles_WhenCalledWithNotParseableArgument_ThrowsFormatException(string lengthInKilometers)
+        {
+            Assert.Throws<FormatException>(() => LengthConverter.ParseKilometersToMiles(lengthInKilometers));
+        }
+
+        [Test]
         [TestCase("1", "0.62mi", 2)]
         [TestCase("1km", "0.62mi", 2)]
         [TestCase("1 km", "0.62mi", 2)]
@@ -101,6 +118,17 @@ namespace UnitConverter.UnitTests
         public void ParseKilometersToMiles_WhenCalled_ReturnsFormatedLength(string lengthInKilometers, string expectedResult, int decimalPlaces)
         {
             Assert.AreEqual(expectedResult, LengthConverter.ParseKilometersToMiles(lengthInKilometers, decimalPlaces));
+        }
+
+        [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("1km")]
+        [TestCase("")]
+        public void ParseMilesToKilometers_WhenCalledWithNotParseableArgument_ThrowsFormatException(string lengthInMiles)
+        {
+            Assert.Throws<FormatException>(() => LengthConverter.ParseMilesToKilometers(lengthInMiles));
         }
 
         [Test]

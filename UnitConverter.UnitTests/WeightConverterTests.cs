@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace UnitConverter.UnitTests
 {
@@ -48,11 +49,31 @@ namespace UnitConverter.UnitTests
         }
 
         [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("")]
+        public void ParseKilogramsToPounds_WhenCalledWithNotParseableArgument_ThrowsFormatException(string weightInKilograms)
+        {
+            Assert.Throws<FormatException>(() => WeightConverter.ParseKilogramsToPounds(weightInKilograms));
+        }
+
+        [Test]
         [TestCase("100.0kg", "220.462lbs", 3)]
         [TestCase("100,0", "220.46lbs", 2)]
         public void ParseKilogramsToPounds_WhenCalled_ReturnsFormatedWeightInPounds(string weightInKilograms, string expectedResult, int decimalPlaces)
         {
             Assert.AreEqual(expectedResult, WeightConverter.ParseKilogramsToPounds(weightInKilograms, decimalPlaces));
+        }
+
+        [Test]
+        [TestCase("2.54c")]
+        [TestCase("Lorem Ipsum")]
+        [TestCase("2cm")]
+        [TestCase("")]
+        public void ParsePoundsToKilograms_WhenCalledWithNotParseableArgument_ThrowsFormatException(string weightInPounds)
+        {
+            Assert.Throws<FormatException>(() => WeightConverter.ParsePoundsToKilograms(weightInPounds));
         }
 
         [Test]

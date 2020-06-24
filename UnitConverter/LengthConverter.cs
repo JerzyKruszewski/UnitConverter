@@ -65,7 +65,6 @@
             return inches * InchToCentiMeterRatio;
         }
 
-        //mile - mi.
         /// <summary>
         /// Converts given length in kilometers to miles.
         /// </summary>
