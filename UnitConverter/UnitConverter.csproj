@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>LorinthsLair.UnitConverter</PackageId>
     <Authors>Jerzy Kruszewski</Authors>
     <Company>LorinthsLair</Company>
@@ -12,8 +12,10 @@
     <PackageIcon>LorinthsLair.png</PackageIcon>
     <Description>Simple .NET Standard library for unit conversions.</Description>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>Changed namespace form UnitConverter to LorinthsLair.UnitConverter
+Added time and speed converters</PackageReleaseNotes>
     <RootNamespace>LorinthsLair.UnitConverter</RootNamespace>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
