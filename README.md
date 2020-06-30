@@ -2,6 +2,24 @@
 
 [![NuGet version (LorinthsLair.UnitConverter)](https://img.shields.io/nuget/v/LorinthsLair.UnitConverter.svg?style=flat-square)](https://www.nuget.org/packages/LorinthsLair.UnitConverter/)
 
+## **Version 2.0.0 changed the namespace from UnitConverter to LorinthsLair.UnitConverter**
+
+## **Convertions added in version 2.0.0 of NuGet package.**
+- **SpeedConverter**
+	- `public static double ConvertMetersPerSecondToKilometersPerHour(double metersPerSecond)`
+	- `public static double ConvertKilometersPerHourToMetersPerSecond(double kilometersPerHour)`
+	- `public static double ConvertKilometersPerHourToMilesPerHour(double kilometersPerHour)`
+	- `public static double ConvertMilesPerHourToKilometersPerHour(double milesPerHour)`
+	- `public static string ParseMetersPerSecondToKilometersPerHour(string speedInMetersPerSecond, int decimalPlaces = 0)`
+	- `public static string ParseKilometersPerHourToMetersPerSecond(string speedInKilometersPerHour, int decimalPlaces = 0)`
+	- `public static string ParseKilometersPerHourToMilesPerHour(string speedInKilometersPerHour, int decimalPlaces = 0)`
+	- `public static string ParseMilesPerHourToKilometersPerHour(string speedInMilesPerHour, int decimalPlaces = 0)`
+- **TimeConverter**
+	- `public static double ConvertSecondsToMinutes(double seconds)`
+	- `public static double ConvertMinutesToSeconds(double minutes)`
+	- `public static double ConvertMinutesToHours(double minutes)`
+	- `public static double ConvertHoursToMinutes(double hours)`
+
 ## **Convertions supported in version 1.0.0 of NuGet package.**
 - **LengthConverter**
 	- `public static double ConvertMetersToFeet(double meters)`
