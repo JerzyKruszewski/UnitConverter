@@ -1,4 +1,4 @@
-﻿namespace UnitConverter
+﻿namespace LorinthsLair.UnitConverter
 {
     /// <summary>
     /// Length units convertions

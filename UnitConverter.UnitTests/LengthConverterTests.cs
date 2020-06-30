@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 
-namespace UnitConverter.UnitTests
+namespace LorinthsLair.UnitConverter.UnitTests
 {
     [TestFixture]
     public class LengthConverterTests

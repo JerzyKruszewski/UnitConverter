@@ -13,6 +13,7 @@
     <Description>Simple .NET Standard library for unit conversions.</Description>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <RootNamespace>LorinthsLair.UnitConverter</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace UnitConverter
+﻿namespace LorinthsLair.UnitConverter
 {
     /// <summary>
     /// Temperature units convertions.

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitConverter
+namespace LorinthsLair.UnitConverter
 {
     /// <summary>
     /// Utilities class.

@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>LorinthsLair.UnitConverter.UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
