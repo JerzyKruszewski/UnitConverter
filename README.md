@@ -49,3 +49,6 @@
 - **Utilities**
 	- `public static string FormatDouble(double numberToFormat, int decimalPlaces = -1)`
 	- `public static double RoundCloserToZero(double numberToRound, int decimalPlaces)`
+	
+## What I have learned working on this project
+- Creating and publishing NuGet packages
