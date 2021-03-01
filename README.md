@@ -1,5 +1,6 @@
 # **Simple unit converter.**
 
+[![CodeFactor](https://www.codefactor.io/repository/github/jerzykruszewski/unitconverter/badge)](https://www.codefactor.io/repository/github/jerzykruszewski/unitconverter)
 [![NuGet version (LorinthsLair.UnitConverter)](https://img.shields.io/nuget/v/LorinthsLair.UnitConverter.svg?style=flat-square)](https://www.nuget.org/packages/LorinthsLair.UnitConverter/)
 
 ## **Version 2.0.0 changed the namespace from UnitConverter to LorinthsLair.UnitConverter**
